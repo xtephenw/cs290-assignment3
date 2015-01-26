@@ -13,7 +13,9 @@
 */
 
 //your code here
-
+function uselessFunction() {
+    return null;              // the function returns the product of p1 and p2
+}
 //end your code
 
 var bar = 'not a function';
