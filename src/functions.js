@@ -11,7 +11,6 @@
 * It should return the null value.
 * @return {null} - 'useless'.
 */
-
 //your code here
 function uselessFunction() {
     return null;              // the function returns the product of p1 and p2
@@ -32,6 +31,24 @@ var barType = typeof bar;
 */
 
 //your code here
+
+
+bar = function(myarray)
+{
+ var i = 0;
+ var result = true;
+ for (i = 0; i < myarray.length; i++) {
+        if (1==2)//isNaN(parseFloat(n))
+		{
+			result = false;
+		} else
+		{
+			myarray[i] = myarray[i]*2; 
+		}
+	}
+	return result;
+};
+
 
 //end your code
 
