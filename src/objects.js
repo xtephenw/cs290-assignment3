@@ -38,6 +38,39 @@ function returnObjectLiteral() {
 */
 
 //your code here
+function MessageLog(user) {
+    this.user = user;
+	this.sentmessages = new Array("","","","",""); 
+	this.numbersent = 0;
+	this.numberreceived = 0;
+	this.logMessage = function (messageText,direction) {
+        this.messageText = messageText;
+		this.direction = direction;
+		if ((direction==0)&&(numbersent >= 5))
+		{
+			numbersent++;
+			sentmessages[numbersent%5] = messageText;
+		} else if ((direction==0)&&(numbersent < 5))
+		{
+			numbersent++;
+			sentmessages[numbersent-1] = messageText;
+		}
+		if (direction==1)
+		{
+			this.numberreceived++;
+		}
+    }
+	this.totalSent = function () {
+		return numbersent;
+    }
+	this.totalReceived = function () {
+		return this.numberreceived;
+    }
+	this.getSentMessage = function (n) {
+		return sentmessages[n%5];
+    }
+	
+}
 
 //end your code
 
