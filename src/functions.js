@@ -38,12 +38,13 @@ bar = function(myarray)
  var i = 0;
  var result = true;
  for (i = 0; i < myarray.length; i++) {
-        if (1==2)//isNaN(parseFloat(n))
+        myarray[i] = myarray[i]*2; 
+		if (isNaN(myarray[i]))//isNaN(parseFloat(n))
 		{
 			result = false;
 		} else
 		{
-			myarray[i] = myarray[i]*2; 
+			//myarray[i] = myarray[i]*2; 
 		}
 	}
 	return result;
