@@ -38,44 +38,47 @@ function returnObjectLiteral() {
 */
 
 //your code here
-	var sentmessages = []; 
-	var receivedmessages = []; //new Array("","","","",""); 
-	numbersent = 0;
-	numberreceived = 0;
 
 function MessageLog(user) {
     this.user = user;
 }
-//MessageLog.prototype.numbersent = 0;
+	//var sentmessages = []; 
+//	var receivedmessages = []; //new Array("","","","",""); 
+
+MessageLog.prototype.numbersent = 0;
+MessageLog.prototype.numberreceived = 0;
+MessageLog.prototype.sentmessages = [];
+MessageLog.prototype.receivedmessages = [];
+
 MessageLog.prototype.logMessage = function (messageText,direction) {
 	//this.logMessage = function (messageText,direction) {
- 		if ((direction==0)&&(numbersent >= 5))
+ 		if ((direction==0)&&(this.numbersent >= 5))
 		{
-			numbersent++;
-			sentmessages.pop();
-			sentmessages.unshift(messageText);
-		} else if ((direction==0)&&(numbersent < 5))
+			this.numbersent++;
+			this.sentmessages.pop();
+			this.sentmessages.unshift(messageText);
+		} else if ((direction==0)&&(this.numbersent < 5))
 		{
-			numbersent++;
-			sentmessages.unshift(messageText);
+			this.numbersent++;
+			this.sentmessages.unshift(messageText);
 		}
 		if (direction==1)
 		{
-			numberreceived++;
-			receivedmessages.unshift(messageText);
+			this.numberreceived++;
+			this.receivedmessages.unshift(messageText);
 		}
 }
 MessageLog.prototype.totalSent = function () {
-		return numbersent;
+		return this.numbersent;
 }
 MessageLog.prototype.totalReceived = function () {
-		return numberreceived;
+		return this.numberreceived;
 }
 MessageLog.prototype.getSentMessage = function (n) {
-		return sentmessages[n];
+		return this.sentmessages[n];
 }
 MessageLog.prototype.ReceivedMessage = function (n) {
-		return receivedmessages[n];
+		return this.receivedmessages[n];
 }
 
 //end your code
@@ -98,5 +101,8 @@ MessageLog.prototype.lastReceivedMessage = function() {
 */
 
 //your code here
-
+var myLog = new MessageLog ("BlackHatGuy");
+myLog.logMessage('foo', 1);
+myLog.logMessage('bar', 1);
+myLog.logMessage('baz', 1);
 //end your code
